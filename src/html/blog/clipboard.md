@@ -46,22 +46,36 @@
   window.clipboardData.setData('Text', url || '')
 ```
 
-#### 完整代码
+#### ------------ 2017-07-27 更新 ------------
 
-```js
-  if (window.clipboardData) {
-    window.clipboardData.setData('Text', copyTxt)
-  } else {
-    let copy = (e) => {
-      e.preventDefault()
-      e.clipboardData.setData('text/plain', url || '')
-      e.clipboardData.setData('text/html', url || '')
-    }
-    document.addEventListener('copy', copy, false)
-    document.execCommand('copy')
-    document.removeEventListener('copy', copy)
-  }
+最近发现在Safari中document.execCommand('copy')限制了必须由用户触发才有效，所以在Safari中document.execCommand('copy')一直返回false
+
+> It looks like the copied text gets returned properly by the event, but the document.execCommand('copy') always returns false in Safari. Safari doesn't support the execCommand API as mentioned at the bottom of the [Clipboard.js documentation](https://clipboardjs.com/).
+
+于是经过反复试错，最终决定使用兼容性最好的input.select()
+
+#### 完整代码
+```html
+<input type="text" name="copyInput" id="copyInput" style="position:absolute;opacity: 0;">
 ```
+```js
+const copyUrl = (text) => {
+  try {
+    var input = document.getElementById('copyInput')
+    input.value = text
+    input.focus()
+    input.select()
+    if (document.execCommand('copy', false, null)) {
+      alert('复制成功')
+    } else {
+      alert('当前浏览器不支持复制操作，请使用Ctrl+c手动复制')
+    }
+  } catch (e) {
+    alert(`复制出错：${e}`)
+  }
+}
+```
+
 
 
 
