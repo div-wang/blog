@@ -2,11 +2,11 @@
 
 >基本数组的常用操作，做个备份。
 
-### 概要
+## 概要
 在JavaScript中，数组以 Array 为构造函数，是一个高阶的类似有序列表的数据类型。
 
-### 声明语法
-```javascript	
+## 声明语法
+```javascript
 	var arr1 = []; //建议使用［］声明数组对象;
 	var arr2 = new Array();
 	var arr3 = new Array(5); //new个数组对象，length是5
@@ -17,7 +17,7 @@
 ##### 数组长度
 向 Array 构造函数传递一个在 0 到 232-1 之间的整数，将返回一个以此为长度的数组对象。通过length属性可以访问这个值。如果传入的参数不是有效的数值，则抛出RangeError异常。如果传入的参数不是数值，则创建一个长度为1的数组，传入的参数即为数组的第一个元素。
 
-##### 数组索引 
+##### 数组索引
 每个元素列会有个单独的Length索引值，JavaScript 数组的索引值（index）从0开始，即数组第一个元素的索引值为0。最后一个元素的索引值等于该数组的长度减1（Array.length -1）。
 ```javascript
 	var arr = [1,2,3,4,5];
@@ -25,17 +25,17 @@
 	console.log(arr[arr.length-1]) // 5
 ```
 
-### >方法
+## >方法
 
 #### Mutator 方法
 
-这些方法可以改变数组自身:  
+这些方法可以改变数组自身:
 
 #### pop
 移除数组的最后一个元素，返回值是被删除的元素。
 ```javascript
 	Array.pop()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = [1, 2, 3];
@@ -46,7 +46,7 @@
 在数组的末尾添加一个或者多个元素，返回值是新的数组的长度。
 ```javascript
 	Array.push(element1, element2, ..., elementN)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -64,7 +64,7 @@
 颠倒数组中元素的顺序，原先第一个元素现在变成最后一个，同样原先的最后一个元素变成了现在的第一个，也就是数组的索引发生了变化。
 ```javascript
 	Array.reverse()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = [1, 2, 3, 4];
@@ -75,7 +75,7 @@
 删除数组的第一个元素，返回值是删除的元素。
 ```javascript
 	Array.shift()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = [2, 3, 4];
@@ -86,7 +86,7 @@
 对数组中的元素进行排序。
 ```javascript
 	Array.sort()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = [1, 11, 0, 99, 67, 100];
@@ -97,7 +97,7 @@
 添加或删除数组中的一个或多个元素。
 ```javascript
 	Array.splice(index, length, element1, element2, ..., elementN)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -118,7 +118,7 @@
 添加一个或者多个元素在数组的开头，返回值是新的数组的长度。
 ```javascript
 	Array.unshift(element1, element2, ..., elementN)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -134,7 +134,7 @@
 ```
 
 
-### Accessor 方法
+## Accessor 方法
 
 这些过程不改变数组自身:
 
@@ -148,7 +148,7 @@
 | ------------- | ------------- |
 | arguments[0] | 可选。向数组合并的第一个数组。  |
 | arguments[1] | 可选。向数组合并的第二个数组。 |
-| arguments[n] | 可选。可添加若干个数组  | 
+| arguments[n] | 可选。可添加若干个数组  |
 
 ###### javascript 代码示例示例：
 ```javascript
@@ -158,13 +158,13 @@
 	console.log(arr3) //["a", "b", "c", 1, 2, 3]
 	var arr4 = arr2.concat(arr3);
 	console.log(arr4) //[1, 2, 3, "a", "b", "c", 1, 2, 3]
-``` 
+```
 
 #### indexOf
 返回第一个与给定参数相等的数组元素的索引，没有找到则返回-1。
 ```javascript
 	Array.indexOf(searchElement,fromIndex)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -182,13 +182,13 @@
 	console.log(index3); // 3
 	var index4 = arr.indexOf('d');
 	console.log(index4); // -1
-``` 
+```
 
 #### join
 将所有的数组元素连接成一个字符串。
 ```javascript
 	Array.join(string)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -209,7 +209,7 @@
 返回在数组中搜索到的与给定参数相等的元素的最后（最大）索引。
 ```javascript
 	Array.lastIndexOf(searchElement,fromIndex)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -227,12 +227,12 @@
 	console.log(index3); // 3
 	var index4 = arr.lastIndexOf('d');
 	console.log(index4); // -1
-``` 
+```
 #### slice
 返回数组中的一段。
 ```javascript
 	Array.slice(begin,end)
-``` 
+```
 ##### <span name="table"/>
 | 参数  | 描述|
 | ------------- | ------------- |
@@ -250,12 +250,12 @@
 	console.log(arr3); // ["c"]
 	var arr4 = arr.slice(-3,-1);
 	console.log(arr4); // ["b", "c"]
-``` 
+```
 #### toString
 返回代表该数组及其元素的字符,重写Object.toString 过程.
 ```javascript
 	Array.toString()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = ['a', 'b', 'c', 'b'];
@@ -266,7 +266,7 @@
 返回 Array 对象的原始值。
 ```javascript
 	Array.valueOf()
-``` 
+```
 ###### javascript 代码示例：
 ```javascript
 	var arr = ['a', 'b', 'c', 'b'];

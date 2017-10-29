@@ -4,7 +4,7 @@
 
 截至2016年，clipboard API还在发展中，很多规范已经更新，市面上大部分文章都是比较老的API，很大一部分被抛弃。
 
-### 使用event.clipboardData.setData()复制到剪切板
+## 使用event.clipboardData.setData()复制到剪切板
 
 在`copy`可以使用 event.clipboardData.setData() 更改剪贴板内容。
 
@@ -15,7 +15,7 @@
     e.clipboardData.setData('text/plain'，'foo');
   });
 ```
-#### 使用execCommand触发复制事件
+## 使用execCommand触发复制事件
 
 如果需要触发复制事件(而不仅仅是通过浏览器UI处理用户复制的请求)，则必须使用document.execCommand('copy')。
 ```js
@@ -35,7 +35,7 @@
   document.removeEventListener('copy', copy)
 ```
 
-#### 浏览器对clipboard API支持情况
+## 浏览器对clipboard API支持情况
 
 + Firefox支持`copy/cut/paste`事件(Firefox 22+)和`execCommand('copy')`用户操作(Firefox 41+)。
 + Chrome也支持`copy/cut/paste`和`execCommand('copy')`(Chrome 42+)。
@@ -46,7 +46,7 @@
   window.clipboardData.setData('Text', url || '')
 ```
 
-#### ------------ 2017-07-27 更新 ------------
+## ------------ 2017-07-27 更新 ------------
 
 最近发现在Safari中document.execCommand('copy')限制了必须由用户触发才有效，所以在Safari中document.execCommand('copy')一直返回false
 

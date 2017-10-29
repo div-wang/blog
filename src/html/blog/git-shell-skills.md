@@ -2,7 +2,7 @@
 
 > git作为常用的代码管理工具，有些shell脚本可以大大提高使用git的效率，本文主要介绍一下我常用的一些shell技巧。
 
-### git shell 自动补全
+## git shell 自动补全
 ##### 如果你用的是 Bash shell，可以试试看 Git 提供的自动补全脚本
 
 + git的源代码包里有个自动补全的shell脚本：
@@ -22,7 +22,7 @@
 
 [2.7 Git 基础 - 技巧和窍门](https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%8A%80%E5%B7%A7%E5%92%8C%E7%AA%8D%E9%97%A8)
 
-### 设置Git命令别名
+## 设置Git命令别名
 
 ##### 打开`.bash_profile `文件
 ```bash

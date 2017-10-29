@@ -4,22 +4,22 @@
 
 上周去360面试，有这么一个面试题：
 
-	写出下列最后输出文字的颜色的值? 
-	<style>  
-	a{color:#000}  
-	#header a{color:pink}  
-	.logo a{color:pink}  
-	h1 a{color:pink}  
+	写出下列最后输出文字的颜色的值?
+	<style>
+	a{color:#000}
+	#header a{color:pink}
+	.logo a{color:pink}
+	h1 a{color:pink}
 	</style>
-	<h1 clss="#header">  
-		<div class="logo"><a>360</a></div>  
+	<h1 clss="#header">
+		<div class="logo"><a>360</a></div>
 	</h1>
 
 这么简单的题，我顺手就回答出来了～～科科
 
-### 优先级顺序  
+## 优先级顺序
 
-选择器列表优先级逐级增加：  
+选择器列表优先级逐级增加：
 
 + 通用选择器（*）
 + 元素(类型)选择器
@@ -29,19 +29,19 @@
 + ID 选择器
 + 内联样式
 
-但是，接下来面试官提问又来了：优先级你知道，那他们的性能谁的最高你知道吗？  
-这下我就哔了个🐶了，css选择器也有性能一说，真实开眼界了！  
+但是，接下来面试官提问又来了：优先级你知道，那他们的性能谁的最高你知道吗？
+这下我就哔了个🐶了，css选择器也有性能一说，真实开眼界了！
 回来马上开始查文档，看文章！
 
-### CSS 选择器性能损耗来自哪里？
-我们中的大多数人都是从左到右的阅读习惯，会习惯性的设定浏览器也是从左到右的方式进行匹配规则，推测这条规则的开销并不高。事实上，却恰恰相反，CSS选择器是从右到左进行规则匹配。  
+## CSS 选择器性能损耗来自哪里？
+我们中的大多数人都是从左到右的阅读习惯，会习惯性的设定浏览器也是从左到右的方式进行匹配规则，推测这条规则的开销并不高。事实上，却恰恰相反，CSS选择器是从右到左进行规则匹配。
 可怜我以前一直的写法都是左到右多级寻找:
 ```css
 	#header .shouc a {...}
 	#header .shouc a i {...}
 ```
 
-### 如何减少 CSS 选择器性能损耗？
+## 如何减少 CSS 选择器性能损耗？
 Google 资深web开发工程师 [Steve Souders](http://stevesouders.com/) 对 CSS 选择器的执行效率从高到低做了一个排序：
 
 + id选择器（#myid）
@@ -59,7 +59,7 @@ Google 资深web开发工程师 [Steve Souders](http://stevesouders.com/) 对 CS
 ##### 1、避免使用通用选择器
 ```css
 	.content * {color: red;}
-```	
+```
 浏览器匹配文档中所有的元素后分别向上逐级匹配 class 为 content 的元素，直到文档的根节点。因此其匹配开销是非常大的，所以应避免使用关键选择器是通配选择器的情况。
 
 ##### 2、避免使用标签或 class 选择器限制 id 选择器
@@ -93,14 +93,14 @@ Google 资深web开发工程师 [Steve Souders](http://stevesouders.com/) 对 CS
 ```css
 	不好的例子：
 	treehead treerow treecell {…}
-	BETTER, BUT STILL 不好的例子： 
+	BETTER, BUT STILL 不好的例子：
 	treehead > treerow > treecell {…}
 	好的例子：
 	.treecell-header {…}
 ```
 ##### 6、使用继承
 ```css
-	不好的例子： 
+	不好的例子：
 	#bookmarkMenuItem > .menu-left { list-style-image: url(blah) }
 	好的例子：
 	#bookmarkMenuItem { list-style-image: url(blah) }
@@ -129,7 +129,7 @@ CSS3添加了复杂的属性选择器，可以通过类正则表达式的方式�
 第一，删除无用的样式后可以缩减样式文件的体积，加快资源下载速度；
 第二，对于浏览器而言，所有的样式规则的都会被解析后索引起来，即使是当前页面无匹配的规则。移除无匹配的规则，减少索引项，加快浏览器查找速度；
 
-### 总结:
+## 总结:
 作为一名前端工程师，应该具有「提升 CSS 选择器性能」的意识，但实际应用中，是否需要完全贯彻这些原则呢？我认为在「可维护性」前提下，提升 CSS 选择器性能是有必要的，但绝不追求「高性能」而牺牲「可维护性」。
 
 

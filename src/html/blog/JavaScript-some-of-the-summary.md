@@ -6,7 +6,7 @@
 >> 4. 实现分布式网络应用的前端组件，并在后台进行数据存储管理。
 >> 5. 使用JavaScript可以实现完整的分布式Web 应用。
 
-### JavaScript 中的数据类型
+## JavaScript 中的数据类型
 JavaScript 提供三种元数据类型:`string`, `number`, `Boolean`,
 可使用`typeof(type)` 测试变量type 的类型
 
@@ -15,7 +15,7 @@ JavaScript 提供三种元数据类型:`string`, `number`, `Boolean`,
 
 JS 中变量类型，数组元素类型，函数参数以及返回值的类型不需要声明类型，类型之间的转换是自动执行的。
 
-变量值可以是:  
+变量值可以是:
 
 + 数值：如字符串，数字或布尔值。
 + 对象引用： 可引用典型对象，也可以是数据，函数，日期或正则表达式。
@@ -30,7 +30,7 @@ JS 中变量类型，数组元素类型，函数参数以及返回值的类型�
 
 
 
-### 变量作用域范围
+## 变量作用域范围
 目前，JavaScript，ES5提供两种作用域类型：全局变量及函数作用域，没有块作用域。块作用域的范围不太明确，所以应当避免块作用域的使用。如下代码，尽管是开发人员常用的Pattern,却是一个陷阱。
 ```js
 function foo() {
@@ -45,7 +45,7 @@ function foo() {
 在JavaScript 文件或`<Script>`元素内，通过输入以下代码切换到严格模式：`use strict;`
 建议采用严格模式，除非项目依赖的库不兼容严格模式。
 
-### 多种对象
+## 多种对象
 JS中对象不需要实例化，也可以有自己的方法，不仅有property，也包含method。除此之外还包含key-value；因此他们总共有三种扩展。
 
 JS对象是由一系列的key-value组成的。而key可以是属性名称，函数名称，映射名称。
@@ -65,15 +65,15 @@ JS 对象能够用于各种途径，以下是3⃣️种常见情况：
 2. map 如Hash map，数组，hash表；
 3. 对象不需要实例化类，它可能包含property和function:
 ```js
-var person1 = { 
-  lastName: "hello", 
+var person1 = {
+  lastName: "hello",
   firstName: "word",
   getFullName: function () {
-    return this.firstName +" "+ this.lastName; 
+    return this.firstName +" "+ this.lastName;
   }
 };
 ```
-### Array List
+## Array List
 JS array 即逻辑数据结构，通过数组下标访问。如数组初始化：
 ```js
 var arr = [1,2,3];
@@ -112,18 +112,18 @@ for (i=0; i < arr.length; i++) {
 如果数组较小，可使用foreach 循环：
 a.forEach( function (elem) {
   console.log( elem);
-}) 
+})
 
 JS 也提供克隆数组的函数：
 ```js
-var clone = arr.slice(0); 
+var clone = arr.slice(0);
 ```
-### Maps
+## Maps
 map 提供key 到值得映射。JS map 是一串字符集，可包含空格：
 ```js
-var map = { 
-    "apple": "red", 
-    "orgin": "yellow" 
+var map = {
+    "apple": "red",
+    "orgin": "yellow"
 }
 ```
 增加：
@@ -148,7 +148,7 @@ for (var i in map) {
 ```js
 Object.forEach(function (key) {
   console.log(Object[key]);
-}) 
+})
 ```
 复制map
 ```js
@@ -157,7 +157,7 @@ var clone = JSON.parse(JSON.stringify(map))
 
 record，map，entity 在实际应用中没有明显的区分，只是概念上的区分。对JS 引擎而言，都是对象。但是从概念上是有区分的。
 
-### 函数
+## 函数
 
 函数定义：
 ```js
@@ -167,8 +167,8 @@ var myFunction = function functionName () {...}
 `myFunction` 会调用`myFunction()`函数，而不是使用`functionName()`调用。
 匿名函数表达式在其他编程语言中称为lambda 表达式。如下代码是匿名函数。可以与预定义的sort函数对比：
 ```js
-var list = [[1,2],[1,3],[1,1],[2,1]]; 
-list.sort( function (x,y) { 
+var list = [[1,2],[1,3],[1,1],[2,1]];
+list.sort( function (x,y) {
   return ((x[0] === y[0]) ? x[1]-y[1] : x[0]-y[0]);
 });
 ```
@@ -252,7 +252,7 @@ class Person {
         this.lastName;
   }
   static checkLastName( ln) {
-    if (typeof(ln)!=="string" || 
+    if (typeof(ln)!=="string" ||
         ln.trim()==="") {
       console.log("Error: " +
           "invalid last name!");
@@ -264,7 +264,7 @@ class Person {
 ```js
 class Student extends Person {  constructor( first, last, studNo) {
     super.constructor( first, last);
-    this.studNo = studNo; 
+    this.studNo = studNo;
   }
   // method overrides superclass method
   toString() {
@@ -277,8 +277,8 @@ class Student extends Person {  constructor( first, last, studNo) {
 ##### 首先定义构造函数，能够隐式的定义类的属性并赋值；
 ```js
 function Person( first, last) {
-  this.firstName = first; 
-  this.lastName = last; 
+  this.firstName = first;
+  this.lastName = last;
 }
 ```
 注意，上述代码中的this 指的是新生成的对象，当构造函数被调用时，该对象就已经生成了。
@@ -303,20 +303,20 @@ function Student( first, last, studNo) {
   // invoke superclass constructor
   Person.call( this, first, last);
   // define and assign additional properties
-  this.studNo = studNo;  
+  this.studNo = studNo;
 }
 ```
 通过调用超类的构造函数Person.call( this, ...)，来创建新对象。其中This指的是Student，Property Slots 在超类的构造函数中已经创建（(firstName 和lastName） 以及其他子类相关的属性。在这种情况下可使用Property Inheritance 机制保证所有的属性已经被定义且被创建。
 
 ##### 通过构造函数的prototype 属性安装method inheritance 。如下，分配了一个新对象创建子类型构造函数的Prototype 属性，并做出适当的调整：
-// Student inherits from 
+// Student inherits from
 PersonStudent.prototype = Object.create(Person.prototype);
-// adjust the subtype's constructor 
+// adjust the subtype's constructor
 propertyStudent.prototype.constructor = Student;
 ##### 重新定义子类方法重写超类方法：
 ```js
 // Student inherits from Person
-Student.prototype = Object.create( 
+Student.prototype = Object.create(
     Person.prototype);
 // adjust the subtype's constructor property
 Student.prototype.constructor = Student;
@@ -340,21 +340,21 @@ alert("The full name of the person are: " +      pers1.toString());
 var Person = {
   name: "Person",
   properties: {
-    firstName: {range:"NonEmptyString", label:"First name", 
+    firstName: {range:"NonEmptyString", label:"First name",
         writable: true, enumerable: true},
-    lastName: {range:"NonEmptyString", label:"Last name", 
+    lastName: {range:"NonEmptyString", label:"Last name",
         writable: true, enumerable: true}
   },
   methods: {
     getFullName: function () {
-      return this.firstName +" "+ this.lastName; 
+      return this.firstName +" "+ this.lastName;
     }
   },
   create: function (slots) {
     // create object
     var obj = Object.create( this.methods, this.properties);
     // add special property for *direct type* of object
-    Object.defineProperty( obj, "type", 
+    Object.defineProperty( obj, "type",
         {value: this, writable: false, enumerable: true});
     // initialize object
     Object.keys( slots).forEach( function (prop) {

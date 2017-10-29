@@ -14,7 +14,7 @@
 
 `npm install`
 
-#### 如果报错请执行
+### 如果报错请执行
 
 `npm cache clean`
 `npm install gulp-sass`

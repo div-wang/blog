@@ -3,7 +3,7 @@
 > 最近在做一个裁剪图片的需求，基于vue和elementui，裁剪完图片遇到一个坑，elementui的upload组件接受一个promise，要求promise resolve一个File对象才可以使用新文件上传，而canvas是转成了blob对象，我google查了好久，没有发现有blob对象转File的文章，所以今天来写一个吧！
 
 
-### 使用FileReader 对象转换：File => DataURL
+## 使用FileReader 对象转换：File => DataURL
 该对象用于读取文件（读取单个对象文件，所以，不能直接读取 Filelist 对象文件集合），即把文件内容读入内存。它接收 File 对象或 Blob 对象，作为参数。
 
 ##### 生成该对象的构造函数方法如下：
@@ -29,7 +29,7 @@
     reader.rederAsDataURL(file);
 ```
 
-### 利用canvas剪切图片
+## 利用canvas剪切图片
 [CanvasRenderingContext2D.drawImage()](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage) 是 Canvas 2D API 中的方法，它提供了多种方式来在Canvas上绘制图像，我们使用drawImage方法节剪切图片。
 ##### 先从canvas获取剪切过的图片DataURL
 ```javascript
@@ -56,7 +56,7 @@
 ```
 
 
-### 利用File Api讲blob转成File对象
+## 利用File Api讲blob转成File对象
 其实我google找了一圈只有 File => Blob，没人写怎么用Blob => File
 最终我在[File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)中找到了[File()构造函数](https://developer.mozilla.org/zh-CN/docs/Web/API/File/File)
 ```javascript
@@ -64,7 +64,7 @@
 ```
 File()构造函数的前两个参数为必传
 
-### 参考：
+## 参考：
 [Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
 
 [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)

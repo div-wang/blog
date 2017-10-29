@@ -9,9 +9,9 @@
 最近提交commit指定数量的合并
 
 ```bash
-	git rebase -i HEAD~3 
+	git rebase -i HEAD~3
 ```
-![002](/static/img/git-commits-merge/002.png) 
+![002](/static/img/git-commits-merge/002.png)
 
 `HEAD~3`中的3指的是合并最近3次commit
 
@@ -22,14 +22,14 @@
 ```bash
 	git log
 ```
-![001](/static/img/git-commits-merge/001.png) 
+![001](/static/img/git-commits-merge/001.png)
 
 获取不需要合并的 commit 的 hash 值
 
 ```bash
 	git rebase -i b09ce93e4bb
 ```
-![002](/static/img/git-commits-merge/002.png) 
+![002](/static/img/git-commits-merge/002.png)
 
 ## 合并commit
 
@@ -53,7 +53,7 @@
 
 再次输入`git log`
 
-![003](/static/img/git-commits-merge/003.png) 
+![003](/static/img/git-commits-merge/003.png)
 
 #### 合并成功！
 
