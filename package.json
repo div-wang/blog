@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "add" : "node lib/markdown/addMD.js"
+    "add": "node lib/markdown/addMD.js"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,14 @@
   },
   "homepage": "http://blog.div-wang.com",
   "devDependencies": {
-    "express": "^4.13.0",
-    "gulp": "^3.9.0",
-    "gulp-markdown": "^1.2.0",
+    "express": "^4.16.1",
+    "gulp": "^3.9.1",
+    "gulp-markdown": "latest",
     "gulp-util": "latest",
-    "gulp-sass": "^2.1.1",
-    "gulp-swig": "^0.7.4",
+    "gulp-sass": "latest",
+    "gulp-swig": "latest",
     "marked": "latest",
     "highlight.js": "latest",
-    "through2": "2.0.0"
+    "through2": "latest"
   }
 }
