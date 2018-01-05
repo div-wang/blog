@@ -104,7 +104,7 @@
 
 这里有个地方我不明白，微信和支付宝正在支付领域争的你死我活，应该是不会那么轻易通过url 跳转到支付宝的。
 
-于是我请教了 ios 同学，他也同样很疑惑，于是做了个实验，通过代码直接跳转[https://qr.alipay.com/c1x09214odvs9va2cyg7vd2](https://qr.alipay.com/c1x09214odvs9va2cyg7vd2)，发现是可以直接跳转到支付宝并自动领红包的。
+于是我请教了 ios 同学，他也同样很疑惑，他做了个实验，通过代码直接跳转[https://qr.alipay.com/c1x09214odvs9va2cyg7vd2](https://qr.alipay.com/c1x09214odvs9va2cyg7vd2)，发现是可以直接跳转到支付宝并自动领红包的。
 
 有这一重大发现，我就想试试能不能跳到淘宝客链接，于是找了个淘宝客的链接[https://wx.loukx.com/wx_tz.html](https://wx.loukx.com/wx_tz.html)，结果是失败了。
 
