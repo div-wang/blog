@@ -119,7 +119,7 @@
 4、qq会默认跳转到 webview，无法正常打开支付宝（在想办法解决）
 
 
-### 上传支付宝红包二维码自动生成跳转链接
+## 上传支付宝红包二维码自动生成跳转链接
 
 [https://ie34.com/short-link](https://ie34.com/short-link)
 
