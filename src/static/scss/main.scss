@@ -13,7 +13,7 @@
     max-width: 660px;
   }
   h2 {
-    font: bold 60px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: bold 60px/1 "PingFang SC", "Microsoft YaHei", sans-serif, arial;
     line-height: 1.4;
     margin: 0;
 
@@ -37,7 +37,7 @@
     }
   }
   h3 {
-    font: bold 30px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: bold 30px/1 "PingFang SC", "Microsoft YaHei", sans-serif, arial;
     line-height: 1.4;
   }
 }
@@ -144,8 +144,9 @@
   display: block;
   color: #dd524d;
   line-height: 50px;
-  width: 110px;
-  margin: 20px auto 0;
+  font-size: 16px;
+  width: 130px;
+  margin: 40px auto 0;
   img {
     display: block;
     float: right;

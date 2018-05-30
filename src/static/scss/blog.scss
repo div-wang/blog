@@ -2,23 +2,16 @@
 @import 'common/head';
 @import 'common/foot';
 
-@media screen and (min-width: 1000px) {
-    .markdown-body {
-        width: 750px;
-        margin: 10px auto;
-    }
-}
 body {
   background-image: url(http://www.cnblogs.com/skins/BlueSky/images/bg.gif);
   background-color: #FFFDFA;
 }
-
 .markdown-body {
     word-wrap: break-word;
     white-space: pre-wrap;
     max-width: 750px;
     margin: 0 auto;
-    font-family: "ubuntu", "Tahoma", "Microsoft YaHei", arial,sans-serif;
+    font-family: sans-serif, "PingFang SC", "Microsoft YaHei", arial;
     color: #444444;
     line-height: 1;
     padding: 1px 25px 30px;
@@ -47,14 +40,14 @@ body {
     h1, h2, h3, h4 {
         color: #111111;
         font-weight: 400;
-        margin-top: 1em;
+        margin: 0px;
     }
 
     h1, h2, h3, h4, h5 {
-        font-family: Georgia, Palatino, serif;
+        font-family: "PingFang SC", "Microsoft YaHei", sans-serif, arial;
     }
     h1, h2, h3, h4, h5, dl{
-        margin-bottom: 16px;
+        margin: 0px;
         padding: 0;
     }
 
@@ -111,14 +104,12 @@ body {
     ul, ol {
         padding: 0;
         padding-left: 18px;
+        font-size: 16px;
         margin: 0;
     }
-    li {
+    p, li {
         line-height: 24px;
-    }
-    p, ul, ol {
         font-size: 16px;
-        line-height: 24px;
     }
 
     ol ol, ul ol {
@@ -258,7 +249,6 @@ body {
     }
 }
 @import 'common/hljs';
-
 @media screen and (max-width: 768px) {
   .markdown-body {
     h1 {
