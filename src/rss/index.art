@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title><![CDATA[{{ title }}]]></title>
+        <link>{{ host }}</link>
+        <description><![CDATA[ Div技术随想录 ]]></description>
+        <generator>Div-wang</generator>
+        <webMaster>826950544@qq.com</webMaster>
+        <language>zh-cn</language>
+        <image>
+            <url>https://div-wang.com/favicon.jpg</url>
+            <title><![CDATA[{{ title }}]]></title>
+            <link>{{ host }}/</link>
+        </image>
+        <lastBuildDate>{{ date }}</lastBuildDate>
+        <ttl> {{ ttl }} </ttl>
+        {{ each item }}
+        <item>
+            <title><![CDATA[{{ $value.title }}]]></title>
+            <link>{{ host }}{{ $value.link }}</link>
+            {{ if $value.author }}<author><![CDATA[{{ $value.author }}]]></author>{{ /if }}
+            {{ if $value.pubDate }}<pubDate>{{ $value.pubDate }}</pubDate>{{ /if }}
+            <description><![CDATA[{{ $value.summary }}]]></description>
+            <guid>{{ host }}{{ $value.link }}</guid>
+        </item>
+        {{ /each }}
+    </channel>
+</rss>

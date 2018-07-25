@@ -26,5 +26,8 @@
     "marked": "latest",
     "highlight.js": "latest",
     "through2": "latest"
+  },
+  "dependencies": {
+    "art-template": "^4.12.2"
   }
 }
