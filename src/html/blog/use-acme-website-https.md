@@ -101,7 +101,7 @@ acme.sh --renew -d mydomain.com
 **acme.sh**对于多个子域名的支持相当方便, 在执行命令后加上你所有的域名, 例如:
 
 ```
-acme.sh --issue --dns -d mydomain.com -d test1.mydomain.com -d test2.mydomain.com -d test3.mydomain.com
+acme.sh --issue --dns -d mydomain.com -d *.mydomain.com
 ```
 
 ## 3. copy/安装 证书
