@@ -6,6 +6,7 @@
 ### Docker系列文章
 [Linux 安装 Docker](/2018/05/linux-install-docker-ce.html)
 [使用Docker Gogs搭建git服务](/2018/05/build-git-server-using-gogs-docker-image.html)
+[利用 Docker 运行 MongoDB](/2018/05/run-mongoDB-with-docker.html)
 </div>
 ---
 
@@ -20,11 +21,13 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-pr
 
 ### 添加docker官方GPG KEY
 ```bash
+// $(. /etc/os-release;echo"$ID") 获取Linux发行版本
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release;echo"$ID")/gpg | sudo apt-key add -
 ```
 
 ### 指纹验证
 ```bash
+// 这里是Debian 9.0
 sudo apt-key fingerprint 0EBFCD88
 ```
 是否输出：`9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88`
@@ -33,11 +36,12 @@ sudo apt-key fingerprint 0EBFCD88
 
 #### x86_64:
 ```bash
-sudo add-apt-repository\"deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release;echo"$ID")\$(lsb_release -cs)\stable"
+  sudo add-apt-repository \ "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release;echo"$ID") \ $(lsb_release -cs) \ stable"
 ```
 #### armhf:
 ```bash
-echo"deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release;echo"$ID")\$(lsb_release -cs)stable"|\sudo  tee /etc/apt/sources.list.d/docker.list
+  echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release;echo"$ID")\ $(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
 ### 安装docker CE
