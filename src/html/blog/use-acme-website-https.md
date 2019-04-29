@@ -136,6 +136,15 @@ acme.sh --install-cert -d example.com \
 
 目前证书在 60 天以后会自动更新, 你无需任何操作. 今后有可能会缩短这个时间, 不过都是自动的, 你不用关心.
 
+如果您想强制更新，执行一下命令
+```
+# RSA
+$ acme.sh --renew -d example.com --force
+
+# ECC
+acme.sh --renew -d example.com --force --ecc
+```
+
 ### 4-2. acme.sh 更新
 
 升级 acme.sh 到最新版 :
