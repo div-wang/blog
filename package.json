@@ -18,13 +18,13 @@
   "homepage": "http://blog.div-wang.com",
   "devDependencies": {
     "express": "^4.16.1",
-    "gulp": "^3.9.1",
+    "gulp": "latest",
     "gulp-markdown": "latest",
-    "gulp-util": "latest",
     "gulp-sass": "latest",
     "gulp-swig": "latest",
-    "marked": "latest",
+    "gulp-util": "latest",
     "highlight.js": "latest",
+    "marked": "latest",
     "through2": "latest"
   },
   "dependencies": {

@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     getServe = require('./lib/app.js')
     setProcess = require('./lib/process.js')
 
-
 gulp.task('serve', getServe({
     port: '3000',
     root: '/blog/'
@@ -10,5 +9,4 @@ gulp.task('serve', getServe({
 
 gulp.task('build', setProcess)
 
-gulp.task('default', ['build', 'serve'])
-
+// gulp.task('default', gulp.series('build', 'serve'))
