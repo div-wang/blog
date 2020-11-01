@@ -18,24 +18,21 @@ V2Ray经过这几年发展，已经成为了和ssr并驾齐驱的工具，所以
 
 ### 登录 vps 自动执行安装脚本
 
-脚本地址有变化 https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
-
 运行以上命令需要root权限，所以需要切换到root账户下，也可以使用`sudo`命令
-
 ```bash
-  sudo curl -L -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | sudo bash
+  bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 ```
 该脚本会自动安装以下两个文件：
-
 ```js
   /usr/bin/v2ray/v2ray：V2Ray 程序；
-  /etc/v2ray/config.json：配置文件；
+  /usr/local/etc/v2ray/config.json：配置文件；
 ```
+
 ##### 官方说明：此脚本会配置开机自动运行脚本，仅适用于 SysV 模式，不支持 Debian 7 的 systemd。
 
 ### V2Ray配置配置
 
-编辑 /etc/v2ray/config.json 文件来配置代理方式，这里给出新的配置，是最近3年来我绝得最稳定的配置
+##### 编辑 /usr/local/etc/v2ray/config.json 文件来配置代理方式，这里给出新的配置，是最近3年来我绝得最稳定的配置
 
 ```json
 {
@@ -106,6 +103,96 @@ V2Ray经过这几年发展，已经成为了和ssr并驾齐驱的工具，所以
 }
 ```
 ssr端口我试过很多，什么3001-3033、10086这些非系统流量端口总是被封tcp流量，换成3389之后就没有这个问题了。
+
+#### 国内服务器转发
+
+##### 安装最新发行的 geoip.dat 和 geosite.dat
+
+```bash
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+```
+##### 转发配置
+```json
+{
+  "log" : {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "info"
+  },
+  "inbounds": [
+    {
+      "protocol": "vmess",
+      "port": 4443,
+      "settings": {
+        "clients": [
+          {
+            "id": "25f8fa73-9468-4b6a-...",
+            "level": 1,
+            "alterId": 16,
+            "security": "auto"
+          }
+        ]
+      }
+    },
+    {
+      "protocol": "shadowsocks",
+      "port": 80,
+      "settings": {
+        "method": "aes-256-cfb",
+        "password": "123456",
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "国外VPS IP",
+            "port": 3389,
+            "method": "aes-256-cfb",
+            "password": "123456",
+            "level": 0
+          }
+        ]
+      },
+      "tag": "test"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private",
+          "geoip:cn"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "ext:gfw.dat:gfw",
+          "geosite:google",
+          "geosite:geolocation-!cn"
+        ],
+        "network": "tcp,udp",
+        "user": [
+          "gh110827@gmail.com"
+        ],
+        "outboundTag": "test"
+      }
+    ]
+  }
+}
+```
 ### V2Ray启动说明
 
 运行 `service v2ray start` 来启动 V2Ray 进程
